@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "veranstaltungen",
+  "info": {
+    "singularName": "veranstaltung",
+    "pluralName": "veranstaltungen",
+    "displayName": "Veranstaltungen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string"
+    },
+    "Datum_Von": {
+      "type": "date"
+    },
+    "Beschreibung": {
+      "type": "text"
+    },
+    "Datum_Bis": {
+      "type": "date"
+    }
+  }
+}

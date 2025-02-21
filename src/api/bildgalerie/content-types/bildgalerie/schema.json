@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bildgaleries",
+  "info": {
+    "singularName": "bildgalerie",
+    "pluralName": "bildgaleries",
+    "displayName": "Bildgalerie"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Titel": {
+      "type": "string"
+    },
+    "Beschreibung": {
+      "type": "text"
+    }
+  }
+}
