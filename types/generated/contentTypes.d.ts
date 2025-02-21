@@ -399,6 +399,40 @@ export interface ApiBildgalerieBildgalerie extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFuhrparkFuhrpark extends Struct.CollectionTypeSchema {
+  collectionName: 'fuhrparks';
+  info: {
+    description: '';
+    displayName: 'Fuhrpark';
+    pluralName: 'fuhrparks';
+    singularName: 'fuhrpark';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Beschreibung: Schema.Attribute.Text;
+    Bild: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fuhrpark.fuhrpark'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Titel: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVeranstaltungVeranstaltung
   extends Struct.CollectionTypeSchema {
   collectionName: 'veranstaltungen';
@@ -942,6 +976,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::bildgalerie.bildgalerie': ApiBildgalerieBildgalerie;
+      'api::fuhrpark.fuhrpark': ApiFuhrparkFuhrpark;
       'api::veranstaltung.veranstaltung': ApiVeranstaltungVeranstaltung;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
