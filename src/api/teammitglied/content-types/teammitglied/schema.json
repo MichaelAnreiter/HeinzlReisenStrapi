@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teammitglieder",
+  "info": {
+    "singularName": "teammitglied",
+    "pluralName": "teammitglieder",
+    "displayName": "Teammitglieder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Jobtitel": {
+      "type": "string"
+    },
+    "Foto": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

@@ -433,6 +433,70 @@ export interface ApiFuhrparkFuhrpark extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGeschichteGeschichte extends Struct.CollectionTypeSchema {
+  collectionName: 'geschichtes';
+  info: {
+    displayName: 'Geschichte';
+    pluralName: 'geschichtes';
+    singularName: 'geschichte';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Beschreibung: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Datum: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::geschichte.geschichte'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Ueberschrift: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTeammitgliedTeammitglied
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'teammitglieder';
+  info: {
+    displayName: 'Teammitglieder';
+    pluralName: 'teammitglieder';
+    singularName: 'teammitglied';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Foto: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    Jobtitel: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::teammitglied.teammitglied'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVeranstaltungVeranstaltung
   extends Struct.CollectionTypeSchema {
   collectionName: 'veranstaltungen';
@@ -977,6 +1041,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::bildgalerie.bildgalerie': ApiBildgalerieBildgalerie;
       'api::fuhrpark.fuhrpark': ApiFuhrparkFuhrpark;
+      'api::geschichte.geschichte': ApiGeschichteGeschichte;
+      'api::teammitglied.teammitglied': ApiTeammitgliedTeammitglied;
       'api::veranstaltung.veranstaltung': ApiVeranstaltungVeranstaltung;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
