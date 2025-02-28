@@ -412,10 +412,7 @@ export interface ApiFuhrparkFuhrpark extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Beschreibung: Schema.Attribute.Text;
-    Bild: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Bild: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -436,6 +433,7 @@ export interface ApiFuhrparkFuhrpark extends Struct.CollectionTypeSchema {
 export interface ApiGeschichteGeschichte extends Struct.CollectionTypeSchema {
   collectionName: 'geschichtes';
   info: {
+    description: '';
     displayName: 'Geschichte';
     pluralName: 'geschichtes';
     singularName: 'geschichte';
@@ -445,6 +443,7 @@ export interface ApiGeschichteGeschichte extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Beschreibung: Schema.Attribute.Text;
+    Bild: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "geschichte",
     "pluralName": "geschichtes",
-    "displayName": "Geschichte"
+    "displayName": "Geschichte",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,16 @@
     },
     "Datum": {
       "type": "date"
+    },
+    "Bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
