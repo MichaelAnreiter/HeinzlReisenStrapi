@@ -443,7 +443,7 @@ export interface ApiGeschichteGeschichte extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Beschreibung: Schema.Attribute.Text;
-    Bild: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Bild: Schema.Attribute.Media<'images' | 'files'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
