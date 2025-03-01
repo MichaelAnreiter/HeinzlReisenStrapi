@@ -466,6 +466,7 @@ export interface ApiTeammitgliedTeammitglied
   extends Struct.CollectionTypeSchema {
   collectionName: 'teammitglieder';
   info: {
+    description: '';
     displayName: 'Teammitglieder';
     pluralName: 'teammitglieder';
     singularName: 'teammitglied';
@@ -477,10 +478,7 @@ export interface ApiTeammitgliedTeammitglied
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Foto: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Foto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     Jobtitel: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
